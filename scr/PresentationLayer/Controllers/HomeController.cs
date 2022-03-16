@@ -6,21 +6,29 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using PresentationLayer.Models;
+using BusinessLogic.Repository;
+using DataAccessLayer.EF;
 
 namespace PresentationLayer.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly Context _context;
+        public HomeController(ILogger<HomeController> logger, Context context)
         {
+            if (logger == null) throw new ArgumentNullException(nameof(logger));
             _logger = logger;
+            if (context == null) throw new ArgumentNullException(nameof(context));
+            _context = context;
         }
 
         public IActionResult Index()
         {
-            return View();
+            EFCustomerRepository repo = new EFCustomerRepository(_context);
+            List<BusinessLogic.Entities.Customer> customers = repo.GetAllCustomer().ToList();
+            return View(customers);
         }
 
         public IActionResult Privacy()
