@@ -11,7 +11,7 @@ namespace PresentationLayer.Map
 	{
 		public AppMappingProfile()
 		{
-			CreateMap<BusinessLogic.Entities.Customer, PLCustomer>().ReverseMap();
+			CreateMap<BusinessLogic.Entities.Customer, PLCustomer>().ReverseMap()
 		}
 	}
 }
