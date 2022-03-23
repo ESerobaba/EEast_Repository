@@ -10,14 +10,14 @@ using System.Threading.Tasks;
 namespace PresentationLayer.Models
 {
     [Serializable]
-    public class Payment
+    public class PLPayment
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int PaymentId { get; set; }
         public double AmountOfManeyDeposited { get; set; }
         public DateTime DateOfPay { get; set; }
-        public Customer? CustomerId { get; set; }
+        public PLCustomer? CustomerId { get; set; }
 
     }
 }

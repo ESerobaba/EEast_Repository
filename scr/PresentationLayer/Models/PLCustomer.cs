@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace PresentationLayer.Models
 {
     
-    public class Customer
+    public class PLCustomer
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
@@ -18,8 +18,8 @@ namespace PresentationLayer.Models
         public string LastName { get; set; }
         public string OtherName { get; set; }
         public string PhoneNumber { get; set; }
-        public List<Indicator>? Indicators { get; set; }
-        public List<Payment>? Payments { get; set; }
+        public List<PLIndicator>? PLIndicators { get; set; }
+        public List<PLPayment>? PLPayments { get; set; }
         
 
     }

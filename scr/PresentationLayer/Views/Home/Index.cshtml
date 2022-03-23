@@ -1,5 +1,5 @@
-﻿@using BusinessLogic.Entities
-@model List<BusinessLogic.Entities.Customer>
+﻿@using PresentationLayer.Models
+@model List<PLCustomer>
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -17,7 +17,7 @@
         <th>OtherName</th>
         
     </tr>
-    @foreach (BusinessLogic.Entities.Customer customer in Model)
+    @foreach (PLCustomer customer in Model)
     {
         <tr>
             <td>@customer.CustomerId</td>

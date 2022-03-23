@@ -13,11 +13,9 @@ namespace PresentationLayer.Models
     /// Структура данных показаний счетчиков
     /// </summary>
     [Serializable]
-    public class Indicator
+    public class PLIndicator
     {
-        [Key]
-        public int Id { get; set; }
-        
+        public int Id { get; set; }   
         public int Indicators { get; set; }
         /// <summary>
         /// Заводской номер счетчика
@@ -58,7 +56,6 @@ namespace PresentationLayer.Models
         /// <summary>
         /// Ссылка на пользователя
         /// </summary>
-        [ForeignKey("Customers")]
-        public Customer? CustomerId { get; set; }
+        public PLCustomer? CustomerId { get; set; }
     }
 }
