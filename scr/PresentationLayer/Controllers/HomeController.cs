@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using PresentationLayer.Models;
 using BusinessLogic.Repository;
 using DataAccessLayer.EF;
+using AutoMapper;
 
 namespace PresentationLayer.Controllers
 {
@@ -16,18 +17,21 @@ namespace PresentationLayer.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly Context _context;
-        public HomeController(ILogger<HomeController> logger, Context context)
+        private readonly IMapper _mapper;
+        public HomeController(ILogger<HomeController> logger, Context context, IMapper mapper)
         {
             if (logger == null) throw new ArgumentNullException(nameof(logger));
             _logger = logger;
             if (context == null) throw new ArgumentNullException(nameof(context));
             _context = context;
+            if (mapper == null) throw new ArgumentNullException(nameof(mapper));
+            _mapper = mapper;
         }
 
         public IActionResult Index()
         {
             EFCustomerRepository repo = new EFCustomerRepository(_context);
-            List<BusinessLogic.Entities.Customer> customers = repo.GetAllCustomer().ToList();
+            List<Customer> customers = _mapper.Map<List<Customer>>(repo.GetAllCustomer().ToList());
             return View(customers);
         }
 

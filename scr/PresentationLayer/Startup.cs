@@ -10,6 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using PresentationLayer.Map;
 
 namespace PresentationLayer
 {
@@ -27,6 +29,7 @@ namespace PresentationLayer
         {
             services.AddControllersWithViews();
             services.AddDbContext<Context>();
+            services.AddAutoMapper(typeof(AppMappingProfile));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
