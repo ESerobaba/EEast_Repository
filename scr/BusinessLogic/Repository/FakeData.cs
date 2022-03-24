@@ -11,6 +11,16 @@ namespace BusinessLogic.Repository
         {
         }
 
+        public IEnumerable<Customer> AddCustomer(int Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Customer> DeleteCustomer(int Id)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Customer> GetAllCustomer()
         {
             Customer cust1 = new Customer()
@@ -33,6 +43,11 @@ namespace BusinessLogic.Repository
             list.Add(cust1);
             list.Add(cust2);
             return list;
+        }
+
+        public IEnumerable<Customer> GetCustomer(int Id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,0 +1,29 @@
+﻿@using PresentationLayer.Models
+@model List<PLCustomer>
+@{
+    ViewData["Title"] = "Customers View";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<h1>Customers Page</h1>
+<table class="table table-striped">
+    <tr>
+        <th style ="width: 10%">№</th>
+        <th style ="width: 30%">Имя:</th>
+        <th style ="width: 30%">Фамилия:</th>
+        <th style ="width: 30%">Отчество:</th>
+    </tr>
+    @foreach (PLCustomer customer in Model)
+    {
+        <tr>
+            <td>@customer.CustomerId</td>
+            <td>@customer.FirstName</td>
+            <td>@customer.LastName</td>
+            <td>@customer.OtherName</td>
+        </tr>
+    }
+</table>
+

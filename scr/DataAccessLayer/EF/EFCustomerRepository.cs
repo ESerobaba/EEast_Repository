@@ -14,10 +14,26 @@ namespace DataAccessLayer.EF
             if (context == null) throw new ArgumentNullException("context");
             this.context = context;
         }
+
+        public IEnumerable<Customer> AddCustomer(int Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Customer> DeleteCustomer(int Id)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Customer> GetAllCustomer()
         {
             var customer = context.Customers.OrderBy(x=>x.CustomerId).ToArray();
             return customer;
+        }
+
+        public IEnumerable<Customer> GetCustomer(int Id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

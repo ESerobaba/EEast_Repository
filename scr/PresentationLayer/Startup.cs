@@ -51,11 +51,16 @@ namespace PresentationLayer
             app.UseRouting();
 
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
+                    pattern: "Customers/Index");
+            });
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "test",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
